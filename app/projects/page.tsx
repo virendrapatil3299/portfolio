@@ -2,7 +2,8 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 // 3D Tilt Helper
 const calculateTilt = (e: React.MouseEvent<HTMLDivElement>, card: HTMLDivElement | null) => {
@@ -150,7 +151,7 @@ const Projects = () => {
                     <ExternalLink className="w-6 h-6" />
                   </button>
                   <button className="p-4 bg-white rounded-2xl text-slate-900 hover:bg-white/90 shadow-lg hover:scale-110 transition-all duration-200 transform">
-                    <Github className="w-6 h-6" />
+                    <FaGithub className="w-6 h-6" />
                   </button>
                 </div>
                 {/* Category Badge */}

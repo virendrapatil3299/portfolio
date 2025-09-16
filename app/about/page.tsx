@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Code2, Palette, Zap, Users, Award, Coffee } from "lucide-react";
+import { CodeXml, Palette, Zap, Users, Award, Coffee } from "lucide-react";
 
 // Types
 type Skill = {
@@ -20,7 +20,7 @@ type Stat = {
 
 const About: React.FC = () => {
   const skills: Skill[] = [
-    { name: "Frontend Development", level: 95, icon: Code2, color: "from-cyan-400 to-blue-500" },
+    { name: "Frontend Development", level: 95, icon: CodeXml, color: "from-cyan-400 to-blue-500" },
     { name: "UI/UX Design", level: 88, icon: Palette, color: "from-purple-400 to-pink-500" },
     { name: "Backend Development", level: 82, icon: Zap, color: "from-emerald-400 to-teal-500" },
     { name: "Team Leadership", level: 90, icon: Users, color: "from-orange-400 to-red-500" },
