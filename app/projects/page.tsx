@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 // 3D Tilt Helper
-const calculateTilt = (e: React.MouseEvent, card: HTMLDivElement | null) => {
+const calculateTilt = (e: React.MouseEvent<HTMLDivElement>, card: HTMLDivElement | null) => {
   if (!card) return { rotateX: 0, rotateY: 0 };
   const rect = card.getBoundingClientRect();
   const x = e.clientX - rect.left;
@@ -113,12 +113,14 @@ const Projects = () => {
           {projects.map((project, idx) => (
             <motion.div
               key={project.id}
-              ref={(el) => { cardRefs.current[idx] = el; }} // ✅ Fixed TypeScript error
+              ref={(el: HTMLDivElement | null) => {
+                cardRefs.current[idx] = el;
+              }}
               className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-3xl"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.15, duration: 0.7 }}
-              onMouseMove={(e) => {
+              onMouseMove={(e: React.MouseEvent<HTMLDivElement>) => {
                 const tiltData = calculateTilt(e, cardRefs.current[idx]);
                 setTilt((prev) => ({ ...prev, [project.id]: tiltData }));
               }}

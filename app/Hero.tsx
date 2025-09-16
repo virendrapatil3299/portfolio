@@ -4,13 +4,15 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Float, MeshWobbleMaterial, Stars } from "@react-three/drei";
 import { Suspense, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import {  Mail } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+import { FiLinkedin } from "react-icons/fi";
 
 const texts = ["Creative Developer", "Digital Artist", "Problem Solver"];
 
 const socials = [
-  { Icon: Github, href: "https://github.com/virendrapatil3299" },
-  { Icon: Linkedin, href: "https://www.linkedin.com/in/virendra-patil-127961304" },
+  { Icon: FaGithub, href: "https://github.com/virendrapatil3299" },
+  { Icon: FiLinkedin, href: "https://www.linkedin.com/in/virendra-patil-127961304" },
   { Icon: Mail, href: "mailto:virendrapatil3299@gmail.com" },
 ];
 

@@ -4,15 +4,29 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Code2, Palette, Zap, Users, Award, Coffee } from "lucide-react";
 
-const About = () => {
-  const skills = [
+// Types
+type Skill = {
+  name: string;
+  level: number;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  color: string;
+};
+
+type Stat = {
+  number: number;
+  label: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+
+const About: React.FC = () => {
+  const skills: Skill[] = [
     { name: "Frontend Development", level: 95, icon: Code2, color: "from-cyan-400 to-blue-500" },
     { name: "UI/UX Design", level: 88, icon: Palette, color: "from-purple-400 to-pink-500" },
     { name: "Backend Development", level: 82, icon: Zap, color: "from-emerald-400 to-teal-500" },
     { name: "Team Leadership", level: 90, icon: Users, color: "from-orange-400 to-red-500" },
   ];
 
-  const stats = [
+  const stats: Stat[] = [
     { number: 50, label: "Projects Completed", icon: Award },
     { number: 3, label: "Years Experience", icon: Coffee },
     { number: 25, label: "Happy Clients", icon: Users },
@@ -94,9 +108,11 @@ const About = () => {
               {skills.map((skill, idx) => (
                 <motion.div
                   key={skill.name}
-                  ref={(el) => { skillRefs.current[idx] = el; }}
+                  ref={(el: HTMLDivElement | null) => {
+                    skillRefs.current[idx] = el;
+                  }}
                   className="p-4 rounded-xl bg-white/5 border border-white/10 shadow-lg hover:shadow-cyan-500/30 transition-all cursor-pointer"
-                  onMouseMove={(e) => {
+                   onMouseMove={(e: React.MouseEvent<HTMLDivElement>) => {
                     const tiltData = calcTilt(e, skillRefs.current[idx]);
                     setTilt((prev) => ({ ...prev, [skill.name]: tiltData }));
                   }}
@@ -139,7 +155,7 @@ const About = () => {
           >
             <h3 className="text-3xl font-bold mb-6">My Journey</h3>
             <p className="text-slate-300 mb-6 leading-relaxed">
-              I started as a curious developer, passionate about design & problem-solving. I ve worked
+              I started as a curious developer, passionate about design & problem-solving. I’ve worked
               with startups and global teams, delivering products that combine creativity and functionality.
             </p>
             <p className="text-slate-300 mb-8 leading-relaxed">

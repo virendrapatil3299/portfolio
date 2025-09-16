@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Menu, X,  Mail } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+import { FiLinkedin } from "react-icons/fi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -24,8 +26,8 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/virendrapatil3299" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/virendra-patil-127961304" },
+    { icon: FaGithub, href: "https://github.com/virendrapatil3299" },
+    { icon: FiLinkedin, href: "https://www.linkedin.com/in/virendra-patil-127961304" },
     { icon: Mail, href: "mailto:virendrapatil3299@gmail.com" },
   ];
 
